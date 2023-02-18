@@ -1,4 +1,6 @@
 git status
 git add .
 git status
+git commit -m "Added install/remove playbooks fo apache"
+git push origin main
 
