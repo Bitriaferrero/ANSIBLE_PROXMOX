@@ -32,14 +32,15 @@ git commit  -m "Primera version de archivo de inventario"
 git push origin main
 
 COMPROBAR CONEXION
-ansible all --key-file ansible -i /home/hugin/ANSIBLE_PROXMOX/ANSIBLE_PROXMOX/inventory -m ping
-
+ansible all --key-file /home/hugin/.ssh/ansible -i /home/hugin/ANSIBLE_PROXMOX/ANSIBLE_PROXMOX/inventory -m ping
 DESPUES  DE CREAR EL ANSIBLE CFG PODREMOS reducir este comando en:
 ansible all -m ping
+
 
 LISTAR hosts
 ansible all --list-hosts
 
+VER DATOS DE LOS HOSTS hARDWARE RED ETC.
 ansible all -m gather_facts
 ansible all -m gather_facts --limit 192.168.1.107
 
