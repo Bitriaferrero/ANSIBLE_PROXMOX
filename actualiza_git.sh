@@ -10,7 +10,7 @@ git status
 
 #Agregar fichero ansible a git
 git add $fichero
-git commit  -m  descrip
+git commit  -m  "$descrip"
 git push origin main
 
 #git status
