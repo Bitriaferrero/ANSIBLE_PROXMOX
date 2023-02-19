@@ -1,11 +1,12 @@
 # SCRIPT SUBIDA A GIT Daniel.Bitria.Ferrero
+echo '<SUBIR A GIT ver 1.0>'
 echo 'Nombre de fichero o directorio:'
 read fichero
-echo 'Descripcion/commit:'
+echo 'Descripcion/Commit:'
 read descrip
 
 #STATUS
-echo 'ficheros actualizados....'
+echo '<<Ficheros actualizados....>>'
 git status
 
 #Agregar fichero ansible a git
