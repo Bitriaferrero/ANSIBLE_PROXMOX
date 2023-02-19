@@ -1,16 +1,16 @@
 # SCRIPT SUBIDA A GIT Daniel.Bitria.Ferrero
 echo 'Nombre de fichero o directorio:'
 read fichero
-echo 'Descripcion:'
-read descripcion
+#echo 'Descripcion:'
+#read descripcion
 
 #STATUS
 echo 'ficheros actualizados....'
 git status
 
 #Agregar fichero ansible a git
-git add .
-git commit  -m  $descripcion
+git add $fichero
+git commit  -m  "Script funciona"
 git push origin main
 
 #git status
