@@ -1,0 +1,21 @@
+---
+
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repositoy index
+    apt:
+      update_cache: yes
+
+  - name: upgrade repositoy index
+    apt:
+      upgrade_cache: yes
+
+
+  - name: upgrade repositoy index
+    apt:
+      dist_upgrade: yes
+
+#ansible all  -m apt  -a "upgrade=dist" --become --ask-become-pass
