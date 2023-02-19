@@ -1,4 +1,5 @@
 # SCRIPT SUBIDA A GIT Daniel.Bitria.Ferrero
+###########################################
 echo '<SUBIR A GIT ver 1.0>'
 echo 'Nombre de fichero o directorio:'
 read fichero
@@ -14,6 +15,7 @@ git add $fichero
 git commit  -m  "$descrip"
 git push origin main
 
+###########################################
 #git status
 #git add .
 #git status
