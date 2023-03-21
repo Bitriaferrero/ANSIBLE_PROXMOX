@@ -1,0 +1,16 @@
+---
+
+
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Actualizar paquetes en Arch Linux
+      pacman:
+        update_cache: yes
+        upgrade: yes
+
+    - name: Actualizar paquetes en Debian
+      apt:
+        update_cache: yes
+        upgrade: yes

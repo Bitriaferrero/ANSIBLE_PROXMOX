@@ -1,0 +1,17 @@
+---
+- name: Actualizar ArchLinux
+  hosts: all
+  become: true
+  tasks:
+    - name: Actualizar repositorios
+      pacman:
+        update_cache: yes
+    - name: Actualizar paquetes
+      pacman:
+        upgrade: yes
+        refresh_keys: yes
+        keyserver: keyserver.ubuntu.com
+    - name: Limpiar caché de paquetes obsoletos
+      pacman:
+        clean: yes
+        clean_cache: yes

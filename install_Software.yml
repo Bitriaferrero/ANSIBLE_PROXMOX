@@ -1,0 +1,17 @@
+---
+- name: Instalar Figlet en Archlinux y Debian
+  hosts: all
+  become: true
+  tasks:
+  - name: Instalar Figlet en Archlinux
+    pacman:
+      name: figlet
+      state: present
+    when: ansible_os_family == "Archlinux"
+  - name: Instalar Figlet en Debian
+    apt:
+      name: figlet
+      state: present
+    when: ansible_os_family == "Debian"
+
+

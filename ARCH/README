@@ -1,0 +1,46 @@
+________
+CONFIG
+________
+________________________________________________________________________________________________
+PRUEBAS ANSIBLE & PROXMOX 7.2-3
+________________________________________________________________________________________________
+
+________________________________________________________________________________________________
+SSSH_GENERAR 2 CLAVES SSH , una para ANSIBLE
+ssh-keygen -t ed25519 -C "Default"
+
+________________________________________________________________________________________________
+
+________________________________________________________________________________________________
+Comandos ANSIBLE 1
+
+
+git status
+git add inventory
+
+git commit  -m "Primera version de archivo de inventario"
+git push origin main
+
+COMPROBAR CONEXION
+ansible all --key-file /home/hugin/.ssh/ansible -i /home/hugin/ANSIBLE_PROXMOX/ANSIBLE_PROXMOX/inventory -m ping
+DESPUES  DE CREAR EL ANSIBLE CFG PODREMOS reducir este comando en:
+ansible all -m ping
+
+
+LISTAR hosts
+ansible all --list-hosts
+
+VER DATOS DE LOS HOSTS hARDWARE RED ETC.
+ansible all -m gather_facts
+ansible all -m gather_facts --limit 192.168.1.107
+
+Agregar fichero ansible a git
+git add ansible.cfg 
+gir commit -m "Version 1.0 de ansible.cfg"
+
+UPDATE ANSIBLE
+ansible all -m apt -a update_cache=true
+ansible all -m apt -a update_cache=true --become --ask-become-pas
+_________________________________________________________________________________________________
+PLAYBOOKS
+ ansible-playbook --ask-become-pass install_apache.yml

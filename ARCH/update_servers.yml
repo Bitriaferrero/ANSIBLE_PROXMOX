@@ -1,0 +1,15 @@
+---
+
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: update repositoy index
+    apt:
+      update_cache: yes
+
+  - name: upgrade repositoy index
+    apt:
+      upgrade_cache: yes
+

@@ -1,0 +1,39 @@
+---
+
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Instalar Zsh
+      pacman:
+        name: zsh
+        state: present
+
+    - name: Instalar dependencias de Powerlevel10k
+      pacman:
+        name: git curl
+        state: present
+
+    - name: Clonar el repositorio de Powerlevel10k
+      git:
+        repo: "https://github.com/romkatv/powerlevel10k.git"
+        dest: "{{ ansible_user_dir }}/powerlevel10k"
+        depth: 1
+        clone_opts: "--depth=1"
+        update: no
+      register: p10k
+
+    - name: Agregar configuración de Powerlevel10k a .zshrc
+      lineinfile:
+        path: "{{ ansible_user_dir }}/.zshrc"
+        line: |
+          source "{{ ansible_user_dir }}/powerlevel10k/powerlevel10k.zsh-theme"
+      when: p10k.changed
+
+    - name: Establecer Zsh como shell predeterminado para el usuario
+      user:
+        name: "{{ ansible_user }}"
+        shell: /bin/zsh
+
+
+#ansible all  -m apt  -a "upgrade=dist" --become --ask-become-pass
